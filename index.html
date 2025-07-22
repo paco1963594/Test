@@ -1,176 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarik Evans Sport</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #000;
       font-family: Arial, sans-serif;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    .header {
+      background-color: #000;
+      color: #fff;
       text-align: center;
-      font-size: 40px;
+    }
+    header {
+      font-size: 2.5em;
       font-weight: bold;
       padding: 20px;
-      animation: colorChange 3s infinite;
+      background: linear-gradient(-45deg, #ff0, #f00, #0ff, #f0f);
+      background-size: 400% 400%;
+      animation: gradientMove 5s infinite;
     }
-
-    @keyframes colorChange {
-      0% { color: gold; }
-      25% { color: #ff3333; }
-      50% { color: #33ff33; }
-      75% { color: #3399ff; }
-      100% { color: gold; }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
-
-    .buttons {
+    .booking-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 40px;
     }
-
-    .lang-btn {
-      padding: 15px 30px;
-      border: none;
-      border-radius: 25px;
-      font-size: 18px;
-      font-weight: bold;
-      color: black;
-      background: linear-gradient(45deg, gold, orange);
-      cursor: pointer;
+    .booking-box {
+      width: 90%;
+      max-width: 500px;
+      font-size: 1.5em;
+      padding: 15px;
+      border-radius: 15px;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
       display: flex;
       align-items: center;
-      gap: 10px;
-      transition: transform 0.2s;
+      justify-content: space-between;
+      cursor: pointer;
+      animation: colorPulse 3s infinite;
     }
-
-    .lang-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .big-message {
+    .booking-box span {
+      flex: 1;
       text-align: center;
-      font-size: 30px;
-      margin-top: 50px;
-      font-weight: bold;
-      animation: fadeLang 30s infinite;
     }
-
-    @keyframes fadeLang {
-      0%   { content: "احجز تذكرتك الآن!"; }
+    .emoji {
+      font-size: 2em;
     }
-
-    .players {
+    @keyframes colorPulse {
+      0% {background-color: #FFD700;}
+      50% {background-color: #FFA500;}
+      100% {background-color: #FFD700;}
+    }
+    .changing-text {
+      font-size: 2em;
+      margin-top: 30px;
+      animation: fadeInOut 5s infinite;
+    }
+    @keyframes fadeInOut {
+      0%, 100% {opacity: 0;}
+      10%, 90% {opacity: 1;}
+    }
+    .footer-stars {
+      font-size: 2em;
+      margin: 20px 0;
       display: flex;
-      justify-content: center;
-      margin-top: 50px;
-      gap: 40px;
+      justify-content: space-around;
+      animation: starRise 4s infinite;
     }
-
-    .player {
-      text-align: center;
-    }
-
-    .player img {
-      width: 80px;
-      height: 80px;
-    }
-
-    .player p {
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    .stars {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .star {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: yellow;
-      border-radius: 50%;
-      animation: starMove 10s linear infinite;
-    }
-
-    @keyframes starMove {
-      0% { transform: translateY(100vh); opacity: 0; }
-      100% { transform: translateY(-10vh); opacity: 1; }
+    @keyframes starRise {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
     }
   </style>
 </head>
 <body>
-
-  <div class="header">Tarik Evans Sport</div>
-
-  <div class="buttons">
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇲🇦 احجز الآن</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇬🇧 Book Now</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇫🇷 Réservez maintenant</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇪🇸 Reserva Ahora</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇨🇳 立即预订</a>
-  </div>
-
-  <div class="big-message" id="rotating-message">احجز تذكرتك الآن!</div>
-
-  <div class="players">
-    <div class="player">
-      <img src="https://i.imgur.com/5T1r0H9.jpeg" alt="Player1">
-      <p>مرحبا بكم! احجز الآن</p>
+  <header>Tarik Evans Sport</header>  <div class="booking-section">
+    <div class="booking-box" onclick="location.href='https://www.sportsevents365.com/?a_aid=687e726e57fdf'">
+      <span class="emoji">🇲🇦</span>
+      <span>احجز تذكرتك الآن</span>
     </div>
-    <div class="player">
-      <img src="https://i.imgur.com/bKVgExB.jpeg" alt="Player2">
-      <p>Let’s go! Book today</p>
+    <div class="booking-box" onclick="location.href='https://www.sportsevents365.com/?a_aid=687e726e57fdf'">
+      <span class="emoji">🇫🇷</span>
+      <span>Réservez votre billet maintenant</span>
     </div>
-    <div class="player">
-      <img src="https://i.imgur.com/jiRRYMq.jpeg" alt="Player3">
-      <p>Réservez maintenant!</p>
+    <div class="booking-box" onclick="location.href='https://www.sportsevents365.com/?a_aid=687e726e57fdf'">
+      <span class="emoji">🇬🇧</span>
+      <span>Book your ticket now</span>
     </div>
-  </div>
-
-  <div class="stars">
-    <!-- Generate stars dynamically -->
-  </div>
-
-  <script>
-    const messages = [
-      "احجز تذكرتك الآن!",
-      "Book your ticket now!",
-      "Réservez votre billet maintenant!",
+    <div class="booking-box" onclick="location.href='https://www.sportsevents365.com/?a_aid=687e726e57fdf'">
+      <span class="emoji">🇨🇳</span>
+      <span>立即预订门票</span>
+    </div>
+    <div class="booking-box" onclick="location.href='https://www.sportsevents365.com/?a_aid=687e726e57fdf'">
+      <span class="emoji">🇪🇸</span>
+      <span>¡Reserva tu entrada ahora!</span>
+    </div>
+  </div>  <div class="changing-text" id="changingText">احجز تذكرتك الآن</div>  <div class="footer-stars">
+    <span>⭐</span>
+    <span>⭐</span>
+    <span>⭐</span>
+    <span>⭐</span>
+    <span>⭐</span>
+  </div>  <script>
+    const texts = [
+      "احجز تذكرتك الآن",
+      "Réservez votre billet maintenant",
+      "Book your ticket now",
+      "立即预订门票",
       "¡Reserva tu entrada ahora!",
-      "立即预订你的门票！"
+      "Prenota ora il tuo biglietto",
+      "Jetzt dein Ticket buchen",
+      "Забронируйте билет сейчас",
+      "立即预订您的门票",
+      "Reserve seu ingresso agora",
+      "अब अपना टिकट बुक करें",
+      "Rezervuj svoju kartu sada",
+      "Rezervuj swoją wejściówkę już teraz"
     ];
+
     let index = 0;
-    const msgElement = document.getElementById("rotating-message");
-
     setInterval(() => {
-      index = (index + 1) % messages.length;
-      msgElement.textContent = messages[index];
+      document.getElementById("changingText").innerText = texts[index];
+      index = (index + 1) % texts.length;
     }, 5000);
-
-    // Stars effect
-    const starsContainer = document.querySelector(".stars");
-    for (let i = 0; i < 50; i++) {
-      const star = document.createElement("div");
-      star.classList.add("star");
-      star.style.left = Math.random() * 100 + "vw";
-      star.style.top = Math.random() * 100 + "vh";
-      starsContainer.appendChild(star);
-    }
-  </script>
-</body>
+  </script></body>
 </html>
