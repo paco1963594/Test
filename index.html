@@ -1,134 +1,137 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fallaowme Tickets</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://i.imgur.com/5T1r0H9.jpeg') no-repeat center center/cover;
+      background: url('https://i.imgur.com/ji2jKLE.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
       color: white;
+      position: relative;
     }
-    header {
-      background-color: rgba(0, 0, 0, 0.7);
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: gold;
+      margin-top: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .button {
+      padding: 20px 30px;
+      font-size: 1.2em;
+      background: black;
+      color: gold;
+      border: 2px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { background-color: #111; }
+      50% { background-color: #222; }
+      100% { background-color: #111; }
+    }
+
+    .stars {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      animation: rise 10s linear infinite;
+    }
+
+    .star {
+      font-size: 2rem;
+      margin: 0 5px;
+      color: gold;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(100px); opacity: 0; }
+      100% { transform: translateY(-200px); opacity: 1; }
+    }
+
+    .emoji-bar {
+      margin-top: 40px;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: scroll-emoji 20s linear infinite;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    @keyframes scroll-emoji {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .footer-box {
+      margin-top: 30px;
+      border: 2px solid gold;
       padding: 20px;
       text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .booking-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px 0;
-    }
-    .booking-buttons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(45deg, gold, orange);
-      color: black;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding: 12px 20px;
-      border-radius: 50px;
-      width: 80%;
-      max-width: 400px;
-      margin: 10px;
-      animation: pulse 3s infinite;
-      transition: background 0.5s;
-    }
-    .booking-buttons a:hover {
-      background: linear-gradient(45deg, orange, gold);
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .emoji-bar {
-      white-space: nowrap;
-      overflow: hidden;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-    .emoji-bar div {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 15s linear infinite;
-      font-size: 2rem;
-    }
-    @keyframes marquee {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
-    }
-    .floating-text {
-      text-align: center;
-      font-size: 1.5rem;
-      margin: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
       border-radius: 15px;
+      font-size: 1.2em;
+      background-color: rgba(255, 215, 0, 0.1);
     }
-    .rotating-text {
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 20px;
-      height: 50px;
-    }
-    .stars {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      font-size: 2rem;
-    }
-    .stars span {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
+
   </style>
 </head>
 <body>
-  <header>Fallaowme Tickets</header>
-  <div class="rotating-text" id="rotatingText">احجز تذكرتك الآن!</div>  <div class="booking-buttons">
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf">⚽ احجز تذكرتك الآن!</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf">🏀 Book Your Ticket Now!</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf">🎾 Réservez votre billet maintenant !</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf">⚾ ¡Reserva tu entrada ahora!</a>
-    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf">🏐 Jetzt Ticket buchen!</a>
-  </div>  <div class="floating-text">🎉 مرحبًا بكم في عالم الحجز السريع! لا تفوّتوا فرصة حضور مبارياتكم المفضلة، احجزوا الآن واستمتعوا بالأجواء الرياضية الحماسية! 🎉</div>  <div class="stars">
-    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-  </div>  <div class="emoji-bar">
-    <div>⚽🏀🏈🎾🏐🥊🥋🤾‍♂️🏸🚴‍♂️🏓🏒⛳🥅</div>
-  </div>  <script>
-    const messages = [
-      "احجز تذكرتك الآن!",
-      "Book your ticket now!",
-      "Réservez votre billet maintenant !",
-      "¡Reserva tu entrada ahora!",
-      "Jetzt Ticket buchen!",
-      "Prenota subito il tuo biglietto!",
-      "立即預訂您的門票！",
-      "Забронируйте билет сейчас!",
-      "احجز مكانك فوراً!",
-      "Hemen biletinizi ayırtın!",
-    ];
+  <div class="overlay">
+    <h1>Fallaowme Tickets</h1>
 
-    let index = 0;
-    const rotatingText = document.getElementById("rotatingText");
+    <div class="buttons">
+      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">احجز تذكرتك الآن</a>
+      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Book Your Ticket Now</a>
+      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Réservez votre billet</a>
+      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Reserva tu entrada</a>
+      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Prenota il tuo biglietto</a>
+    </div>
 
-    setInterval(() => {
-      rotatingText.innerText = messages[index];
-      index = (index + 1) % messages.length;
-    }, 3000);
-  </script></body>
+    <div class="emoji-bar">
+      ⚽🏀🏈⚾🎾🏐🏉🥊🥋⛳🏓🏸🥅🥌🎿⛷🏂🚴‍♂️🏇🏌️‍♀️
+    </div>
+
+    <div class="footer-box">
+      👋 مرحبًا بك في منصتنا! احجز تذكرتك الآن وشاهد أبطال العالم عن قرب!
+    </div>
+
+    <div class="stars">
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+    </div>
+  </div>
+</body>
 </html>
