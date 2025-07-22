@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarik Evans Sport</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      padding: 20px;
+      animation: colorChange 3s infinite;
+    }
+
+    @keyframes colorChange {
+      0% { color: gold; }
+      25% { color: #ff3333; }
+      50% { color: #33ff33; }
+      75% { color: #3399ff; }
+      100% { color: gold; }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .lang-btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(45deg, gold, orange);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s;
+    }
+
+    .lang-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .big-message {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 50px;
+      font-weight: bold;
+      animation: fadeLang 30s infinite;
+    }
+
+    @keyframes fadeLang {
+      0%   { content: "احجز تذكرتك الآن!"; }
+    }
+
+    .players {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 40px;
+    }
+
+    .player {
+      text-align: center;
+    }
+
+    .player img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .player p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      border-radius: 50%;
+      animation: starMove 10s linear infinite;
+    }
+
+    @keyframes starMove {
+      0% { transform: translateY(100vh); opacity: 0; }
+      100% { transform: translateY(-10vh); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">Tarik Evans Sport</div>
+
+  <div class="buttons">
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇲🇦 احجز الآن</a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇬🇧 Book Now</a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇫🇷 Réservez maintenant</a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇪🇸 Reserva Ahora</a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="lang-btn">🇨🇳 立即预订</a>
+  </div>
+
+  <div class="big-message" id="rotating-message">احجز تذكرتك الآن!</div>
+
+  <div class="players">
+    <div class="player">
+      <img src="https://i.imgur.com/5T1r0H9.jpeg" alt="Player1">
+      <p>مرحبا بكم! احجز الآن</p>
+    </div>
+    <div class="player">
+      <img src="https://i.imgur.com/bKVgExB.jpeg" alt="Player2">
+      <p>Let’s go! Book today</p>
+    </div>
+    <div class="player">
+      <img src="https://i.imgur.com/jiRRYMq.jpeg" alt="Player3">
+      <p>Réservez maintenant!</p>
+    </div>
+  </div>
+
+  <div class="stars">
+    <!-- Generate stars dynamically -->
+  </div>
+
+  <script>
+    const messages = [
+      "احجز تذكرتك الآن!",
+      "Book your ticket now!",
+      "Réservez votre billet maintenant!",
+      "¡Reserva tu entrada ahora!",
+      "立即预订你的门票！"
+    ];
+    let index = 0;
+    const msgElement = document.getElementById("rotating-message");
+
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      msgElement.textContent = messages[index];
+    }, 5000);
+
+    // Stars effect
+    const starsContainer = document.querySelector(".stars");
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
