@@ -3,135 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fallaowme Tickets</title>
+  <title id="pageTitle">Fallaowme Tickets</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('https://i.imgur.com/ji2jKLE.jpg') no-repeat center center fixed;
+      background: url('https://i.imgur.com/rRYMqNz.jpeg') no-repeat center center fixed;
       background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
-      position: relative;
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 30px 10px;
       min-height: 100vh;
-      padding: 20px;
     }
 
     h1 {
       text-align: center;
-      font-size: 3em;
-      color: gold;
-      margin-top: 20px;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      transition: color 0.5s ease-in-out;
     }
 
-    .buttons {
+    .ticket-box {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .button {
-      padding: 20px 30px;
+      background: #111;
+      margin: 15px auto;
+      padding: 15px 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
       font-size: 1.2em;
-      background: black;
+      font-weight: bold;
       color: gold;
-      border: 2px solid gold;
-      border-radius: 10px;
+      animation: pulse 3s infinite;
       cursor: pointer;
-      text-decoration: none;
-      animation: pulse 2s infinite;
-      transition: transform 0.3s;
+      text-align: left;
     }
 
-    .button:hover {
-      transform: scale(1.1);
+    .ticket-box:hover {
+      background: #222;
+    }
+
+    .ticket-box span {
+      margin-right: 12px;
+      font-size: 1.5em;
     }
 
     @keyframes pulse {
-      0% { background-color: #111; }
-      50% { background-color: #222; }
-      100% { background-color: #111; }
+      0% {color: gold;}
+      50% {color: #fff200;}
+      100% {color: gold;}
     }
 
     .stars {
       position: absolute;
       bottom: 0;
+      left: 0;
       width: 100%;
       display: flex;
       justify-content: center;
-      animation: rise 10s linear infinite;
+      overflow: hidden;
     }
 
-    .star {
-      font-size: 2rem;
+    .stars span {
+      font-size: 2em;
+      animation: rise 5s linear infinite;
       margin: 0 5px;
-      color: gold;
     }
 
     @keyframes rise {
-      0% { transform: translateY(100px); opacity: 0; }
-      100% { transform: translateY(-200px); opacity: 1; }
+      0% { transform: translateY(50px); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100px); opacity: 0; }
     }
 
     .emoji-bar {
-      margin-top: 40px;
-      overflow: hidden;
+      display: flex;
       white-space: nowrap;
-      animation: scroll-emoji 20s linear infinite;
-      font-size: 2rem;
-      text-align: center;
+      overflow: hidden;
+      margin-top: 20px;
     }
 
-    @keyframes scroll-emoji {
+    .emoji-bar span {
+      display: inline-block;
+      font-size: 2em;
+      padding: 0 10px;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
-    .footer-box {
-      margin-top: 30px;
-      border: 2px solid gold;
-      padding: 20px;
+    .welcome-box {
       text-align: center;
-      border-radius: 15px;
-      font-size: 1.2em;
-      background-color: rgba(255, 215, 0, 0.1);
+      margin: 30px auto;
+      font-size: 1.5em;
+      font-weight: bold;
+      background: #222;
+      padding: 15px;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 10px;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <h1>Fallaowme Tickets</h1>
+    <h1 id="changingTitle">احجز تذكرتك الآن 🎫</h1>
 
-    <div class="buttons">
-      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">احجز تذكرتك الآن</a>
-      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Book Your Ticket Now</a>
-      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Réservez votre billet</a>
-      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Reserva tu entrada</a>
-      <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="button">Prenota il tuo biglietto</a>
-    </div>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
+      <div class="ticket-box"><span>🏟️</span>احجز تذكرتك الآن</div>
+    </a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
+      <div class="ticket-box"><span>🎯</span>BOOK YOUR TICKET NOW</div>
+    </a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
+      <div class="ticket-box"><span>⚽</span>RÉSERVEZ VOTRE BILLET</div>
+    </a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
+      <div class="ticket-box"><span>🏈</span>RESERVA TU ENTRADA</div>
+    </a>
+    <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
+      <div class="ticket-box"><span>🏀</span>PRENOTA IL TUO BIGLIETTO</div>
+    </a>
+
+    <div class="welcome-box" id="welcomeText">مرحباً بكم! احجزوا تذاكركم الآن!</div>
 
     <div class="emoji-bar">
-      ⚽🏀🏈⚾🎾🏐🏉🥊🥋⛳🏓🏸🥅🥌🎿⛷🏂🚴‍♂️🏇🏌️‍♀️
-    </div>
-
-    <div class="footer-box">
-      👋 مرحبًا بك في منصتنا! احجز تذكرتك الآن وشاهد أبطال العالم عن قرب!
+      <span>⚽</span><span>🏀</span><span>🏈</span><span>⚾</span><span>🎾</span><span>🏉</span><span>🥊</span><span>🏓</span>
     </div>
 
     <div class="stars">
-      <span class="star">⭐</span>
-      <span class="star">⭐</span>
-      <span class="star">⭐</span>
-      <span class="star">⭐</span>
-      <span class="star">⭐</span>
+      <span>⭐</span>
+      <span>⭐</span>
+      <span>⭐</span>
+      <span>⭐</span>
+      <span>⭐</span>
     </div>
   </div>
+
+  <script>
+    const languages = [
+      "احجز تذكرتك الآن 🎫",
+      "BOOK YOUR TICKET NOW 🎟️",
+      "RÉSERVEZ VOTRE BILLET 🎟️",
+      "RESERVA TU ENTRADA 🎟️",
+      "PRENOTA IL TUO BIGLIETTO 🎟️",
+      "JETZT TICKET BUCHEN 🎟️",
+      "БРОНИРУЙТЕ БИЛЕТ 🎟️",
+      "购票 🎟️",
+      "예약 티켓 🎟️",
+      "予約チケット 🎟️",
+      "REZERVEAZĂ BILETUL 🎟️",
+      "BİLETİNİ AYIRT 🎟️",
+      "ΚΛΕΙΣΕ ΤΟ ΕΙΣΙΤΗΡΙΟ 🎟️",
+      "TICKET BOOKING 🎟️",
+      "BILET ZAMÓW 🎟️"
+    ];
+
+    let langIndex = 0;
+    setInterval(() => {
+      document.getElementById("changingTitle").textContent = languages[langIndex];
+      document.getElementById("welcomeText").textContent = languages[langIndex];
+      langIndex = (langIndex + 1) % languages.length;
+    }, 3000);
+
+    const title = document.getElementById("pageTitle");
+    const titleColors = ["#ff5555", "#ffaa00", "#00ffaa", "#00aaff", "#aa00ff"];
+    let colorIndex = 0;
+    setInterval(() => {
+      title.style.color = titleColors[colorIndex];
+      colorIndex = (colorIndex + 1) % titleColors.length;
+    }, 3000);
+  </script>
 </body>
 </html>
