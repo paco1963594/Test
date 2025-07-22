@@ -20,6 +20,24 @@
       min-height: 100vh;
     }
 
+    .rainbow-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 1400% 1400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowShift 10s ease infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
       text-align: center;
       font-size: 2.5em;
@@ -121,6 +139,8 @@
 </head>
 <body>
   <div class="overlay">
+    <div class="rainbow-title">Fallaowme Ticket</div>
+
     <h1 id="changingTitle">احجز تذكرتك الآن 🎫</h1>
 
     <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" target="_blank">
